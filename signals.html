@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>KAT Signal Desk</title>
+<meta name="description" content="Breakout, dark-pool, sweep and options-flow bots: why trading rooms run them, what value they really add, and how KAT Trading Universe would make the same service far more useful.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html"><i></i>KAT Trading Universe</a>
+    <nav aria-label="Signal Desk">
+      <a href="#what">What the bots are</a>
+      <a href="#why">Why rooms run them</a>
+      <a href="#evidence">Evidence</a>
+      <a href="#ours">Our version</a>
+      <a href="#plan">Plan</a>
+      <a href="plan.html">Project plan</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Signal Desk · draft 1 · 15 October 2026</p>
+    <h1>The same alerts, with the answer key.</h1>
+    <p>Big trading rooms post automated alerts all day: stock breakouts, dark-pool prints, options sweeps and unusual flow. They're cheap to run and feel valuable, but nobody tells the member what happened next. KAT would post the same alerts and add what's missing: the record of every alert, a plan with a stop, context, a lesson and a practice trade.</p>
+    <div class="kpis">
+      <div><strong>4</strong><span>bot types studied: breakouts, dark pool, sweeps, flow</span></div>
+      <div><strong>0</strong><span>of them show members how past alerts turned out</span></div>
+      <div><strong>≈ 1 day</strong><span>to build a breakout bot of the same quality ourselves</span></div>
+      <div><strong>100 %</strong><span>of KAT alerts would be scored afterwards, in public</span></div>
+    </div>
+  </div>
+</section>
+
+<main>
+<section id="what">
+  <div class="wrap">
+    <h2>What these bots are</h2>
+    <p class="lead">In the big Discord rooms these channels are usually not the trader's own work. They are white-label bots from a third-party data vendor (Tradytics is a common one) that post into the room automatically, around the clock.</p>
+    <div class="scroll"><table>
+      <thead><tr><th>Bot</th><th>What one alert shows</th><th>What it leaves out</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Stock breakouts</strong></td><td>Ticker, hourly or daily chart, "momentum" score, relative volume, the resistance (or support) line, a chart</td><td>Entry, stop, size, earnings date, market context, how often such breakouts fail, what happened afterwards</td></tr>
+        <tr><td><strong>Dark pool prints</strong></td><td>A large off-exchange trade: ticker, size, price, notional</td><td>Whether it was a buy or a sell (prints carry no side), that many are delayed or are hedges and index trades, any follow-up</td></tr>
+        <tr><td><strong>Options sweeps</strong></td><td>An order split across exchanges to fill fast: strike, expiry, premium, "bullish/bearish"</td><td>Whether it opened or closed a position, whether it hedges stock, and how sweeps in this name usually turn out</td></tr>
+        <tr><td><strong>Unusual flow</strong></td><td>Option volume well above open interest, premium spent</td><td>The same gaps, plus that "unusual" is common: hundreds of names a day qualify</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
+<section id="why" class="alt">
+  <div class="wrap">
+    <h2>Why a room runs them, and what value they really add</h2>
+    <div class="grid2">
+      <div class="card"><h3>Value to the room</h3><ul class="clean">
+        <li><strong>The room never looks empty.</strong> Dozens of posts a day, at night and at weekends, for a small monthly vendor fee.</li>
+        <li><strong>The subscription feels bigger.</strong> "Scanners and flow included", tools that cost money elsewhere.</li>
+        <li><strong>"Smart money" is a strong story.</strong> Flow and dark-pool alerts suggest a peek behind the curtain.</li>
+        <li><strong>Never wrong.</strong> "Potential breakout", no entry, no stop, no follow-up: no alert can be shown to have failed.</li>
+      </ul></div>
+      <div class="card"><h3>Value to the member</h3><ul class="clean">
+        <li><strong>Saves scanning time.</strong> A ready watchlist of names that are moving, with a level drawn.</li>
+        <li><strong>Something to do.</strong> A beginner gets ideas to look at instead of a blank screen.</li>
+        <li><strong>Pattern exposure.</strong> Seeing hundreds of breakout charts trains the eye a little.</li>
+        <li><strong>But:</strong> no way to tell the good alerts from the noise, no plan, and no feedback. Beginners tend to chase the alert after the move.</li>
+      </ul></div>
+    </div>
+    <div class="callout">Honest summary: the value is convenience and engagement, not proven predictive power. Anyone with market data can build these bots; Claude Code can build a breakout bot of the same quality in about a day. The scarce thing is <strong>the answer key</strong>: what happened to every alert, and why.</div>
+  </div>
+</section>
+
+<section id="evidence">
+  <div class="wrap">
+    <h2>What our own tests already say</h2>
+    <p class="lead">We've tested breakouts before, with pre-set rules, on daily data.</p>
+    <div class="scroll"><table>
+      <thead><tr><th>Test</th><th>Result</th></tr></thead>
+      <tbody>
+        <tr><td>Early detection, US stocks 2017–2025 (survivors only)</td><td>Base breakouts: median 12-month excess −3.3 %. A new 52-week high: +2.2 %, small. None beat a volatility-matched base rate.</td></tr>
+        <tr><td>Low-volatility breakout rule, 10 ETFs 1997–2026</td><td>−0.07 ATR per trade after costs: a small loss.</td></tr>
+        <tr><td>Intraday breakout family, futures</td><td>Failed its holdout; the family is closed.</td></tr>
+        <tr><td>Dark-pool, sweep and flow alerts</td><td>Not tested by us yet. Research on options order flow finds some information in it, but mostly in non-public, signed data, not in delayed public alerts.</td></tr>
+      </tbody>
+    </table></div>
+    <p>So KAT won't present any of these alerts as calls. It presents them as practice material, with the outcome attached.</p>
+  </div>
+</section>
+
+<section id="ours" class="alt">
+  <div class="wrap">
+    <h2>The KAT version: same alert, eight additions</h2>
+    <div class="grid2">
+      <div class="card"><span class="num">01 · RECORD</span><h3>Every alert scored</h3><p>Next day, 5 days, 20 days: did it hold the level, the best run-up, the worst drawdown. A public scoreboard by alert type and score band, failures included.</p></div>
+      <div class="card"><span class="num">02 · PLAN</span><h3>A plan card</h3><p>Trigger level, what invalidates it (a close back below the line), stop distance in ATR, size for 1 % risk on a sample account, and the reward needed to be worth it.</p></div>
+      <div class="card"><span class="num">03 · CONTEXT</span><h3>Warnings</h3><p>Earnings within days, market trend and volatility, sector, how stretched the price is, a gap. Flow alerts show whether the trade looks like a hedge, a close or an opening.</p></div>
+      <div class="card"><span class="num">04 · FEWER</span><h3>Ranked, not flooded</h3><p>Five best per day in one digest before the open, with the reason each made the list; the full list stays one click away.</p></div>
+      <div class="card"><span class="num">05 · LESSON</span><h3>Why it's a breakout</h3><p>An annotated chart and a two-minute lesson, then "would you take it?" before the outcome is shown.</p></div>
+      <div class="card"><span class="num">06 · PRACTICE</span><h3>One click to the simulator</h3><p>Take the alert with its plan in the simulator; the learner's result sits beside the alert's own.</p></div>
+      <div class="card"><span class="num">07 · REVIEW</span><h3>Weekly post-mortem</h3><p>"Last week's 25 breakouts: 9 held, 16 failed. What the failures had in common." Built from the record, not from memory.</p></div>
+      <div class="card"><span class="num">08 · ASK KAT</span><h3>History on demand</h3><p>"Show me every breakout like this one in 15 years and what happened next", answered with a chart.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="plan">
+  <div class="wrap">
+    <h2>Plan</h2>
+    <div class="scroll"><table>
+      <thead><tr><th>ID</th><th>Task</th><th>Phase</th><th>Definition of done</th></tr></thead>
+      <tbody>
+        <tr><td style="white-space:nowrap">U-17</td><td>Measure first: privately record a room's breakout and flow alerts for 3 months and score each one (1, 5, 20 days, against a matched random stock)</td><td>1</td><td>A private report: do these alerts beat a random pick? Nothing published from the room.</td></tr>
+        <tr><td style="white-space:nowrap">U-18</td><td>KAT breakout bot on our own data (IBKR, Polygon): same fields, plus the plan card and context warnings</td><td>2</td><td>Runs every trading day for a month; every alert stored for scoring</td></tr>
+        <tr><td style="white-space:nowrap">U-19</td><td>Alert scoreboard: every alert's outcome, by type and score band, refreshed nightly</td><td>2</td><td>Shows at least 200 scored alerts, failures visible</td></tr>
+        <tr><td style="white-space:nowrap">U-20</td><td>Lesson and simulator link for each alert, plus the weekly post-mortem</td><td>2–3</td><td>Katherina uses it for a month and can explain why most breakouts fail</td></tr>
+        <tr><td style="white-space:nowrap">U-21</td><td>Flow and dark-pool alerts, only if a data licence allows it and U-17 shows they carry information</td><td>3</td><td>An owner decision with the U-17 numbers in front of it</td></tr>
+      </tbody>
+    </table></div>
+    <div class="callout"><strong>Never:</strong> an alert presented as a buy signal; an alert without its later outcome; paying for a flow feed before U-17 shows it adds anything.</div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>KAT Trading Universe · <a href="index.html">Overview</a> · <a href="plan.html">Project plan</a></span>
+    <span>Nothing on this site is financial advice or an offer.</span>
+  </div>
+</footer>
+</body>
+</html>
